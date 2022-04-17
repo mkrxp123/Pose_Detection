@@ -5,13 +5,13 @@ from tensorflow.keras import Model, Sequential, layers, losses
 # %%
 def convModel(img = (160, 90, 3), features = 1000):
     model = Sequential([
-        layers.Conv2D(32, (3, 3), activation = 'relu', input_shape = img),
+        layers.Conv2D(64, (3, 3), activation = 'relu', input_shape = img),
         layers.MaxPooling2D((2, 2)),
-        layers.Conv2D(64, (3, 3), activation = 'relu'),
+        layers.Conv2D(32, (3, 3), activation = 'relu'),
         layers.MaxPooling2D((2, 2)),
-        layers.Conv2D(64, (3, 3), activation = 'relu'),
+        layers.Conv2D(32, (3, 3), activation = 'relu'),
         layers.Flatten(),
-        layers.Dense(64, activation = 'relu'),
+        layers.Dense(features, activation = 'relu'),
         layers.Dense(features, activation = 'softmax', name = "final")
     ])
     return model
