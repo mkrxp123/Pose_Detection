@@ -3,7 +3,7 @@ from tensorflow import constant, Variable
 from tensorflow.keras import Model, Sequential, layers, losses
 
 # %%
-def convModel(img = (160, 90, 3), features = 1000):
+def convModel(img = (128, 96, 3), features = 1000):
     model = Sequential([
         layers.Conv2D(64, (3, 3), activation = 'relu', input_shape = img),
         layers.MaxPooling2D((2, 2)),
@@ -12,7 +12,7 @@ def convModel(img = (160, 90, 3), features = 1000):
         layers.Conv2D(32, (3, 3), activation = 'relu'),
         layers.Flatten(),
         layers.Dense(features, activation = 'relu'),
-        layers.Dense(features, activation = 'softmax', name = "final")
+        layers.Dense(features, activation = 'relu', name = "final")
     ])
     return model
 
