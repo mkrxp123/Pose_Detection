@@ -37,6 +37,5 @@ end = time.time()
 cap.release()
 cv2.destroyAllWindows()
 print(end-start)
-img_size = (128, 96)
 for i, img in enumerate(imgs):
-    cv2.imwrite(f'{args.dataset_path}/{i:04d}.png', cv2.resize(img, img_size))
+    cv2.imwrite(f'{args.dataset_path}/{i:04d}.png', img)
