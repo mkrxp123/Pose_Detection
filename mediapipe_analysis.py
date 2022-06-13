@@ -4,7 +4,7 @@ import os
 from sklearn.model_selection import train_test_split
 import numpy as np
 import random
-import keras
+from tensorflow import keras
 
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
