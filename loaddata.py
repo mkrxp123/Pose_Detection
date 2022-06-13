@@ -21,13 +21,14 @@ def loaddata(folder1_path, folder2_path, folader3_path, train_size):
             Y += context
 
     # split to train, valid
-    dataset = list(range(len(Y)))
-    train_index, val_index = train_test_split(dataset, random_state=777, train_size=train_size)
-    x_train = [x for i, x in enumerate(X) if i in train_index]
-    y_train = [y for i, y in enumerate(Y) if i in train_index]
-    x_test = [x for i, x in enumerate(X) if i in val_index]
-    y_test = [y for i, y in enumerate(Y) if i in val_index]
-    return np.array(x_train), np.array(x_test), np.array(y_train), np.array(y_test)
+    # dataset = list(range(len(Y)))
+    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=1-train_size, random_state=777)
+    # train_index, val_index = train_test_split(dataset, random_state=777, train_size=train_size)
+    # x_train = [x for i, x in enumerate(X) if i in train_index]
+    # y_train = [y for i, y in enumerate(Y) if i in train_index]
+    # x_test = [x for i, x in enumerate(X) if i in val_index]
+    # y_test = [y for i, y in enumerate(Y) if i in val_index]
+    return x_train, x_test, y_train, y_test
 
 if __name__ == '__main__':
     f1 = '1'
